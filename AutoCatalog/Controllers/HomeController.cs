@@ -13,8 +13,25 @@ namespace AutoCatalog.Controllers
         public ActionResult Index()
         {
             var cars = db.Cars;
+
             ViewBag.Cars = cars;
+
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Car car)
+        {
+            db.Cars.Add(car);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
         }
 
        

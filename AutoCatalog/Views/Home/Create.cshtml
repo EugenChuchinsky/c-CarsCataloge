@@ -1,0 +1,36 @@
+﻿@model AutoCatalog.Models.Car
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Новая Машина</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Mark, "Марка")
+    <br />
+    @Html.EditorFor(model => model.Mark)
+    <br /><br />
+    @Html.LabelFor(model => model.Model, "Модель")
+    <br />
+    @Html.EditorFor(model => model.Model)
+    <br /><br />
+    @Html.LabelFor(model => model.Color, "Цвет")
+    <br />
+    @Html.EditorFor(model => model.Color)
+    <br /><br />
+    @Html.LabelFor(model => model.Engine, "Объем двигателя")
+    <br />
+    @Html.EditorFor(model => model.Engine)
+    <br /><br />
+    @Html.LabelFor(model => model.Price, "Цена")
+    <br />
+    @Html.EditorFor(model => model.Price)
+    <br /><br />
+    @Html.LabelFor(model => model.Description, "Описание")
+    <br />
+    @Html.EditorFor(model => model.Description)
+    <br /><br />
+    <input type="submit" value="Добавить" />
+}
