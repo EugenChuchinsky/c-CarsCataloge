@@ -11,7 +11,7 @@ namespace AutoCatalog.Models
         public DbSet<Car> Cars { get; set; }
     }
 
-    public class CarDbInitializer : DropCreateDatabaseAlways<CarContext>
+    public class CarDbInitializer : CreateDatabaseIfNotExists<CarContext>
     {
         protected override void Seed(CarContext db)
         {
