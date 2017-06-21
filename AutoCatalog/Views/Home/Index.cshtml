@@ -1,4 +1,7 @@
-﻿@{
+﻿@using AutoCatalog.Models;
+@model IEnumerable<Car>
+
+@{
     ViewBag.Title = "Автокаталог";
 }
 
@@ -24,7 +27,7 @@
                 <td></td>
                 
             </tr>
-            @foreach (var b in ViewBag.Cars)
+            @foreach (Car b in Model)
             {
                 <tr>
                     <td><p>@b.Mark</p></td>

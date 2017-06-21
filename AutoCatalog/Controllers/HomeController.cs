@@ -14,9 +14,18 @@ namespace AutoCatalog.Controllers
         {
             var cars = db.Cars;
 
-            ViewBag.Cars = cars;
+            //ViewBag.Cars = cars;
 
-            return View();
+            return View(cars);
+        }
+
+        public ActionResult CarIndex()
+        {
+            var cars = db.Cars;
+
+            //ViewBag.Cars = cars;
+
+            return View(cars);
         }
 
         [HttpGet]
