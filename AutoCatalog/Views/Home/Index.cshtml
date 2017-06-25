@@ -1,5 +1,4 @@
-﻿@using AutoCatalog.Models;
-@model IEnumerable<Car>
+﻿@model AutoCatalog.Models.CarListViewModel
 
 @{
     ViewBag.Title = "Автокаталог";
@@ -16,6 +15,25 @@
   
     <div>
         <h3>Каталог</h3>
+        
+        <form method="get">
+            <div class="form-inline">
+                <label class="control-label">Марка: </label>
+                @Html.DropDownList("mark", Model.Marks as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+
+                <label class="control-label">Цвет: </label>
+                @Html.DropDownList("color", Model.Colors as SelectList,
+                htmlAttributes: new { @class = "form-control" })
+
+                <label class="control-label">Обьем двигателя: </label>
+                @Html.DropDownList("engine", Model.Engines as SelectList,
+                htmlAttributes: new { @class = "form-control" })
+
+                <input type="submit" value="Фильтр" class="btn btn-default" />
+            </div>
+        </form>
+        
         <table>
             <tr>
                 <td><p>Марка</p></td>
@@ -27,22 +45,27 @@
                 <td></td>
                 
             </tr>
-            @foreach (Car b in Model)
+            @foreach (var item in Model.Cars)
             {
                 <tr>
-                    <td><p>@b.Mark</p></td>
-                    <td><p>@b.Model</p></td>
-                    <td><p>@b.Color</p></td>
-                    <td><p>@b.Engine</p></td>
-                    <td><p>@b.Price</p></td>
-                    <td><p>@b.Description</p></td>
-                    <td><p></p> <p><a href="/Home/EditCar/@b.Id">Редактировать</a></p> <a href="/Home/Delete/@b.Id">Удалить</a></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.Mark.Name)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.Model.Name)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.Color.Name)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.Engine.enginetype)</p></td>
+                    <td><p>@Html.DisplayFor(modelItem => item.Price.currentPrice)</p></td>
+                    <td><p>@item.Description</p></td>
+                    <td>
+                        @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
                     
                 </tr>
             }
         </table>
 
-        <a href="/Home/Create">Добавить Авто</a>
+        <p>
+            @Html.ActionLink("Добавить авто", "Create")
+        </p>
     </div>
 </body>
 </html>
