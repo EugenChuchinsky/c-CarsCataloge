@@ -1,0 +1,48 @@
+﻿@model AutoCatalog.Models.Car
+
+@{
+    ViewBag.Title = "Редакстировать Авто";
+}
+
+<h2>Редакстировать Авто</h2>
+@using (Html.BeginForm("EditCar", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Mark, "Марка автомобиля")
+            <br />
+            @Html.EditorFor(m => m.Mark)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Model, "Модель автомобиля")
+            <br />
+            @Html.EditorFor(m => m.Model)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Color, "Цвет")
+            <br />
+            @Html.EditorFor(m => m.Color)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Engine, "Обьем двигателя")
+            <br />
+            @Html.EditorFor(m => m.Engine)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Price, "Цена")
+            <br />
+            @Html.EditorFor(m => m.Price)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Description, "Описание")
+            <br />
+            @Html.EditorFor(m => m.Description)
+
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

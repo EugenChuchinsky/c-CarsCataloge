@@ -13,7 +13,7 @@
     <title>Каталог автомобилей</title>
 </head>
 <body>
-    <a href="/Home/Create">Добавить Авто</a>
+  
     <div>
         <h3>Каталог</h3>
         <table>
@@ -36,10 +36,13 @@
                     <td><p>@b.Engine</p></td>
                     <td><p>@b.Price</p></td>
                     <td><p>@b.Description</p></td>
+                    <td><p></p> <p><a href="/Home/EditCar/@b.Id">Редактировать</a></p> <a href="/Home/Delete/@b.Id">Удалить</a></td>
                     
                 </tr>
             }
         </table>
+
+        <a href="/Home/Create">Добавить Авто</a>
     </div>
 </body>
 </html>
